@@ -15,7 +15,7 @@ class Menu:
 			print("\t\t1. Administrador")
 			print("\t\t2. Cliente")
 			print("\t\t3. Salir")
-			option = int(input("Option: "))
+			option = int(input("Opción: "))
 
 			if option == 1:
 				self.adminMenu()
@@ -30,15 +30,16 @@ class Menu:
 			print("\n\t\t---- Administrador ----\n")
 			print("\t\t1. Ingresar")
 			print("\t\t2. Regresar")
-			option = int(input("Option: "))
+			option = int(input("Opción: "))
 			if option == 1:
 				if self.validate():
 					print("Usuario validado")
 					if option == 1:
-						self.sytemSalesManu()
+						self.sytemSalesMenu()
 			elif option == 2:
 				break
-	def sytemSalesManu(self):
+
+	def sytemSalesMenu(self):
 		while True:
 			print("\n\t\t---- SISTEMA DE VENTAS ----\n")
 			print("\t\t1. Ingresar número máximo de vuelos")
@@ -51,7 +52,7 @@ class Menu:
 			print("\t\t8. Información administrador")
 			print("\t\t9. Regresar")
 			print()
-			option = int(input("Option: ")) 
+			option = int(input("Opción: ")) 
 			if option == 1:
 				maxNumberFlights = int(input("Ingresa el número máximo de vuelo: "))
 				self.flightAdmin.setMaxNumberOfFlights(maxNumberFlights)
@@ -60,7 +61,60 @@ class Menu:
 				self.flightAdmin.setFlights()
 			elif option == 3:
 				self.flightAdmin.printFlights()
+			elif option == 4:
+				flightNumber = int(input("Ingrese el vuelo que desea cancelar: "))
+				self.flightAdmin.deleteFlight(flightNumber)
+				print("Vuelo {}".format(flightNumber)+" cancelado")
+			elif option == 6:
+				self.statisticPayMenu()
+			elif option == 7:
+				self.statisticClassMenu()
+			elif option == 8:
+				print("Datos del Administrador")
 			elif option == 9:
+				break
+
+	def statisticPayMenu(self):
+		while True:
+			print("\n\t\t---- Estadísticas de Pago ----\n")
+			print("\t\t1. Efectivo total en cajas")
+			print("\t\t2. Saldo de pagos por tarjeta")
+			print("\t\t3. Saldo total de ventas")
+			print("\t\t4. Número de pagos realizados en efectivo")
+			print("\t\t5. Número de pagos realizados con tarjeta")
+			print("\t\t6. Regresar")
+			option = int(input("Opción: "))
+			if option == 1:
+				print("Listar!")
+			elif option == 2:
+				print("Listar!")
+			elif option == 3:
+				print("Listar!")
+			elif option == 4:
+				print("Listar!")
+			elif option == 5:
+				print("Listar!")
+			elif option == 6:
+				break
+
+	def statisticClassMenu(self):
+		while True:
+			print("\n\t\t---- Estadísticas de Clase ----\n")
+			print("\t\t1. Boletos vendidos de la Clase Turista")
+			print("\t\t2. Boletos vendidos de la Clase Negocios")
+			print("\t\t3. Boletos vendidos de Primera clase ")
+			print("\t\t4. Clase con mayor número de ventas")
+			print("\t\t5. Regresar")
+			option = int(input("Opción: "))
+			if option == 1:
+				print("Listar!!")
+			elif option == 2:
+				print("Listar!!")
+			elif option == 3:
+				print("Listar!!")
+			elif option == 4:
+				print("Listar!!")
+			elif option == 5:
 				break
 
 	def validate(self):
