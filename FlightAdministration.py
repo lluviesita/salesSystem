@@ -7,7 +7,10 @@ class FlightAdministration:
 
 	def setMaxNumberOfFlights(self, MaxNumberOfFlights):
 		self.MaxNumberOfFlights=MaxNumberOfFlights+1
-		print("Se asignaron "+str(MaxNumberOfFlights)+" vuelos.")
+		if MaxNumberOfFlights > 1:
+			print("Se asignaron "+str(MaxNumberOfFlights)+" vuelos.")
+		else:
+			print("Se asignó "+str(MaxNumberOfFlights)+" vuelo.")
 
 	def setFlights(self):
 		for x in range(1,self.MaxNumberOfFlights):
@@ -15,12 +18,12 @@ class FlightAdministration:
 			hasPassengers = False
 			destination = input("\t\tDestino: ")
 			departureTime = input("\t\tHora Salida (HH:ss): ")
-			arrivingTime = input("\t\tHora Llegada: (HH:ss)")
+			arrivingTime = input("\t\tHora Llegada (HH:ss): ")
 			touristCost = float(input("\t\tCosto de viaje Turista: $ "))
-			businessCost = float(input("\t\tCosto de viaje Negocios: $"))
-			firstClassCost = float(input("\t\tCosto de viaje Primera Clase: "))
-			touristAvailableSeats = int(input("\t\tLugares disponibles calse Turista: "))
-			businessAvailableSeats = int(input("\t\tLugares disponibles calse Negocios: "))
+			businessCost = float(input("\t\tCosto de viaje Negocios: $ "))
+			firstClassCost = float(input("\t\tCosto de viaje Primera Clase: $ "))
+			touristAvailableSeats = int(input("\t\tLugares disponibles clase Turista: "))
+			businessAvailableSeats = int(input("\t\tLugares disponibles clase Negocios: "))
 			firstClassAvailableSeats = int(input("\t\tLugares disponibles clase Primera Clase: "))
 			departureDate = input("\t\tFecha de salida (yyyy/mm/dd): ")
 			flight = Flight(hasPassengers,destination,departureTime,arrivingTime,
