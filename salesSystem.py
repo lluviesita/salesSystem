@@ -1,12 +1,14 @@
 from FlightListAdministration import FlightListAdministration
 from FlightAdministration import FlightAdministration
 from Statistics import Statistics
+from Administrator import Administrator
 
 class Menu:
 	def __init__(self):
 		self.flightList=FlightListAdministration()#Maipular lista Dic de vuelos -> Fernan
 		self.statistic=Statistics()#Actualizar atributos para llevar las ventas ->Fernan
 		self.flightAdmin=FlightAdministration(self.flightList)
+		self.Admin=Administrator("Lluvia","Manilla",10000.555,"1999/04/24")
 		self.principalMenu()
 
 	def principalMenu(self):
@@ -57,7 +59,7 @@ class Menu:
 				maxNumberFlights = int(input("Ingresa el número máximo de vuelo: "))
 				self.flightAdmin.setMaxNumberOfFlights(maxNumberFlights)
 			elif option == 2:
-				print("\n\t\t---- Ingresar nuevo vuelo----\n")
+				print("\n\t\t---- Ingresar nuevo vuelo ----\n")
 				self.flightAdmin.setFlights()
 			elif option == 3:
 				self.flightAdmin.printFlights()
@@ -65,12 +67,31 @@ class Menu:
 				flightNumber = int(input("Ingrese el vuelo que desea cancelar: "))
 				self.flightAdmin.deleteFlight(flightNumber)
 				print("Vuelo {}".format(flightNumber)+" cancelado")
+			elif option == 5:
+				print("\n\t\t---- Modificar vuelo ----\n")
+				print("\t\t1. Destino")
+				print("\t\t2. Hora Salida (HH:ss)")
+				print("\t\t3. Hora Llegada (HH:ss)")
+				print("\t\t4. Costo de viaje Turista")
+				print("\t\t5. Costo de viaje Negocios")
+				print("\t\t6. Costo de viaje Primera Clase")
+				print("\t\t7. Lugares disponibles clase Turista")
+				print("\t\t8. Lugares disponibles clase Negocios")
+				print("\t\t9. Lugares disponibles clase Primera Clase")
+				print("\t\t10. Fecha de salida (yyyy/mm/dd)")
+				print("\t\t11. Regresar")
+				fligthData = int(input("Opción: "))
+				
+				if fligthData != 11:
+					flightNumber = int(input("Número de vuelo a modificar: "))
+					self.flightAdmin.updateFlight(flightNumber,fligthData)
 			elif option == 6:
 				self.statisticPayMenu()
 			elif option == 7:
 				self.statisticClassMenu()
 			elif option == 8:
-				print("Datos del Administrador")
+				print("\n\t\t---- Datos del Administrador ----\n")
+				print(self.Admin.toString())
 			elif option == 9:
 				break
 
@@ -85,15 +106,15 @@ class Menu:
 			print("\t\t6. Regresar")
 			option = int(input("Opción: "))
 			if option == 1:
-				print("Listar!")
+				print(self.statistic.cashBalance)
 			elif option == 2:
-				print("Listar!")
+				print(self.statistic.creditCardBalance)
 			elif option == 3:
-				print("Listar!")
+				print(self.statistic.totalAmountOfSells)
 			elif option == 4:
-				print("Listar!")
+				print(self.statistic.numberOfCashPayments)
 			elif option == 5:
-				print("Listar!")
+				print(self.statistic.numberOfCreditCardsPayments)
 			elif option == 6:
 				break
 
@@ -107,13 +128,13 @@ class Menu:
 			print("\t\t5. Regresar")
 			option = int(input("Opción: "))
 			if option == 1:
-				print("Listar!!")
+				print(self.statistic.touristTickets)
 			elif option == 2:
-				print("Listar!!")
+				print(self.statistic.businessTickets)
 			elif option == 3:
-				print("Listar!!")
+				print(self.statistic.fistsClassTickets)
 			elif option == 4:
-				print("Listar!!")
+				print(self.statistic.getBestSellerClass())
 			elif option == 5:
 				break
 

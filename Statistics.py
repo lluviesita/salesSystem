@@ -10,7 +10,7 @@ class Statistics:
 		self.fistsClassTickets = 0
 
 	def getBestSellerClass(self):
-		message="not exist a best Seller"
+		message="Not exist a best Seller"
 		if (self.touristTickets > self.businessTickets) and (self.touristTickets > self.fistsClassTickets):
 			message="Tourist Tickets are the best Seller"
 		if (self.businessTickets > self.touristTickets) and (self.businessTickets > self.fistsClassTickets):
